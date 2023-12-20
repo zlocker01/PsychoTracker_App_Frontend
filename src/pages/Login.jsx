@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FormInput } from "../components/FormInput";
 import { NavLink } from "../components/NavLink";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
 import { clientAxios } from "../config/axios";
 
 export function Login() {
