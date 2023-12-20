@@ -5,6 +5,7 @@ export const AuthContext = createContext(null);
 // global state
 export const AuthProvider = ({ children }) => {
     const [auth, setAuth] = useState(null);
+    const [isCharging, setIsCharging ] = useState(true);
 
     useEffect(() => {
       const authUser = async () => {
@@ -12,6 +13,7 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem("psychoTrackerToken");
 
         if (!token) {
+          setIsCharging(false);
           return;
         }
 
@@ -26,16 +28,17 @@ export const AuthProvider = ({ children }) => {
         try {
             const { data } = await clientAxios.get("/psychologist/profile", config);
             setAuth(data);
-        } catch (error) {
-          console.log(error.response.data.msg);
-        //   taking care of user datas setting again
-          setAuth(null);
-        }
-
+          } catch (error) {
+            console.log(error.response.data.msg);
+            //   taking care of user datas setting again
+            setAuth(null);
+          }
+          
+          setIsCharging(false);
       };
       authUser();
 
     }, []);
 
-  return <AuthContext.Provider value={{auth, setAuth}}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{auth, setAuth, isCharging}}>{children}</AuthContext.Provider>;
 };

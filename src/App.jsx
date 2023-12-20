@@ -23,6 +23,7 @@ export function App() {
             </Route>
             <Route path="/admin" element={<ProtectedRoute/>}>
               <Route index element={<AdminPatients/>}></Route>
+              {/* <Route path="" element={}></Route> */}
             </Route>
           </Routes>
         </AuthProvider>
