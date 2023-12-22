@@ -3,6 +3,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 export const Header = () => {
   const { logOut } = useAuth();
+  
   return (
     <header>
       <div>

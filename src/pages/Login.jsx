@@ -3,6 +3,7 @@ import { FormInput } from "../components/FormInput";
 import { NavLink } from "../components/NavLink";
 import { useNavigate } from "react-router-dom";
 import { clientAxios } from "../config/axios";
+import { useAuth } from "../../hooks/useAuth";
 
 export function Login() {
   // route to re-direct the user
@@ -11,6 +12,8 @@ export function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [alert, setAlert] = useState("");
+
+  const { setAuth } = useAuth();
 
   const handleInput = (e, data) => {
     switch (data) {
@@ -37,6 +40,7 @@ export function Login() {
         const { data } = await clientAxios.post(url, { email, password });
         localStorage.setItem("psychoTrackerToken", data.token);
         // re-direct the user to admin lyout
+        setAuth(data);
         navegate("/admin");
       } catch (error) {
         setAlert(error.response.data.msg);
