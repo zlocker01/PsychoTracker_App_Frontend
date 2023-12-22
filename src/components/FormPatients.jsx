@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { InputWithLabel } from "./InputWithLabel";
 import { TextareaWithLabel } from "./TextareaWithLabel";
+import { usePatients } from "../hooks/usePatients";
 
 export const FormPatients = () => {
   const [name, setName] = useState("");
@@ -37,26 +38,60 @@ export const FormPatients = () => {
   const [feedbackPatient, setFeedbackPatient] = useState("");
   const [alert, setAlert] = useState("");
 
+  // using patients context
+  const { savePatient } = usePatients();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // form patinet validation
-    if(name === "") {
-        setAlert("El Nombre es el único campo obligatorio");
+    if (name === "") {
+      setAlert("El Nombre es el único campo obligatorio");
+      return;
     }
-    
-    try {
-        await 
-    } catch (error) {
-        setAlert(error.response.data.msg);
-    }
-  }
+
+    savePatient({
+      name,
+      age,
+      gender,
+      email,
+      phone,
+      address,
+      scholarship,
+      reasonForConsultation,
+      medicalHistory,
+      familyBackground,
+      previousTreatments,
+      evaluationMentalHealth,
+      evaluationRisk,
+      objectivesTherapeuticsInitials,
+      provisionalDiagnosis,
+      evaluationDiagnosis,
+      planningTreatment,
+      therapeuticInterventions,
+      recommendedActivities,
+      medicines,
+      dose,
+      frequency,
+      duration,
+      discussedTopics,
+      therapeuticTechniques,
+      progress,
+      reviewsTreatment,
+      adjustmentsMade,
+      treatmentEffectiveness,
+      observations,
+      importantEvents,
+      feedbackPatient,
+    });
+    setAlert("Paciente guardado exitosamente");
+  };
 
   return (
     <>
       <h2>Añade un Nuevo Paciente</h2>
       <form onSubmit={handleSubmit}>
-      <p>{alert}</p>
+        <p>{alert}</p>
         <details>
           <summary>Información personal básica:</summary>
           <div>
@@ -183,7 +218,7 @@ export const FormPatients = () => {
         <details>
           <summary>Diagnostico:</summary>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Diagnóstico provisional"}
               placeholder={"Evaluación inicial del estado del paciente"}
               value={provisionalDiagnosis}
@@ -191,7 +226,7 @@ export const FormPatients = () => {
             />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Observaciones sobre la evolución del diagnóstico"}
               placeholder={"Notas sobre cambios en el diagnóstico"}
               value={evaluationDiagnosis}
@@ -202,144 +237,152 @@ export const FormPatients = () => {
         <details>
           <summary>Tratamiento y planificación:</summary>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Plan de tratamiento"}
               placeholder={"Estrategias y metas terapéuticas"}
               value={planningTreatment}
               onchange={setPlanningTreatment}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Intervenciones terapéuticas"}
               placeholder={"Acciones específicas para abordar los problemas"}
               value={therapeuticInterventions}
               onchange={setTherapeuticInterventions}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Actividades recomendadas entre sesiones"}
-              placeholder={"Tareas sugeridas para realizar fuera de las sesiones"}
+              placeholder={
+                "Tareas sugeridas para realizar fuera de las sesiones"
+              }
               value={recommendedActivities}
               onchange={setRecommendedActivities}
-          />
+            />
           </div>
         </details>
         <details>
           <summary>Medicación:</summary>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Medicamentos recetados"}
               placeholder={"Lista de medicamentos y sus nombres"}
               value={medicines}
               onchange={setMedicines}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Dosis"}
               placeholder={"Indicaciones sobre la dosis"}
               value={dose}
               onchange={setDose}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Frecuencia"}
               placeholder={"Indicaciones sobre cómo tomar la medicación"}
               value={frequency}
               onchange={setFrequency}
-          />
+            />
           </div>
         </details>
         <details>
           <summary>Sesiones y notas de progreso:</summary>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Fechas y duración de las sesiones"}
               placeholder={"Registro temporal de las sesiones terapéuticas"}
               value={duration}
               onchange={setDuration}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Temas discutidos"}
               placeholder={"Temas abordados durante las sesiones"}
               value={discussedTopics}
               onchange={setDiscussedTopics}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Técnicas terapéuticas utilizadas"}
               placeholder={"Métodos específicos empleados en la terapia"}
               value={therapeuticTechniques}
               onchange={setTherapeuticTechniques}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Evaluación del progreso del paciente"}
               placeholder={"Valoración del avance del paciente"}
               value={progress}
               onchange={setProgress}
-          />
+            />
           </div>
         </details>
         <details>
           <summary>Evaluación continua:</summary>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Revisiones del plan de tratamiento"}
               placeholder={"Actualización y ajuste del plan terapéutico"}
               value={reviewsTreatment}
               onchange={setReviewsTreatment}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Ajustes realizados"}
-              placeholder={"Cambios hechos en respuesta al progreso del paciente"}
+              placeholder={
+                "Cambios hechos en respuesta al progreso del paciente"
+              }
               value={adjustmentsMade}
               onchange={setAdjustmentsMade}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Evaluación de la efectividad del tratamiento"}
               placeholder={"Valoración de la eficacia de las intervenciones"}
               value={treatmentEffectiveness}
               onchange={setTreatmentEffectiveness}
-          />
+            />
           </div>
         </details>
         <details>
           <summary>Notas adicionales:</summary>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Observaciones relevantes"}
-              placeholder={"Comentarios importantes relacionados con el tratamiento"}
+              placeholder={
+                "Comentarios importantes relacionados con el tratamiento"
+              }
               value={observations}
               onchange={setObservations}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Eventos importantes en la vida del paciente"}
               placeholder={"Sucesos significativos en la vida del paciente"}
               value={importantEvents}
               onchange={setImportantEvents}
-          />
+            />
           </div>
           <div>
-          <TextareaWithLabel
+            <TextareaWithLabel
               label={"Feedback del paciente sobre el tratamiento"}
-              placeholder={"Respuestas y opiniones del paciente sobre la terapia"}
+              placeholder={
+                "Respuestas y opiniones del paciente sobre la terapia"
+              }
               value={feedbackPatient}
               onchange={setFeedbackPatient}
-          />
+            />
           </div>
         </details>
         <button>Añadir Paciente</button>
