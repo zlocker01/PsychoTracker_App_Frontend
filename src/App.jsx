@@ -6,7 +6,7 @@ import { Register } from "./pages/Register";
 import { ForgottenPassword } from "./pages/ForgottenPassword";
 import { ConfirmAccount } from "./pages/ConfirmAccount";
 import { NewPassword } from "./pages/NewPassword";
-import { AuthProvider } from "../context/AuthProvider";
+import { AuthProvider } from "./context/AuthProvider";
 import { AdminPatients } from "./pages/AdminPatients";
 
 export function App() {

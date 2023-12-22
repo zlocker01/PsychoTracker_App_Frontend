@@ -3,7 +3,7 @@ import { FormInput } from "../components/FormInput";
 import { NavLink } from "../components/NavLink";
 import { useNavigate } from "react-router-dom";
 import { clientAxios } from "../config/axios";
-import { useAuth } from "../../hooks/useAuth";
+import { useAuth } from "../hooks/useAuth";
 
 export function Login() {
   // route to re-direct the user
