@@ -1,349 +1,345 @@
+import { useState } from "react";
+import { InputWithLabel } from "./InputWithLabel";
+import { TextareaWithLabel } from "./TextareaWithLabel";
+
 export const FormPatients = () => {
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [scholarship, setScholarship] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [reasonForConsultation, setReasonForConsultation] = useState("");
+  const [medicalHistory, setMedicalHistory] = useState("");
+  const [familyBackground, setFamilyBackground] = useState("");
+  const [previousTreatments, setPreviousTreatments] = useState("");
+  const [evaluationMentalHealth, setEvaluationMentalHealth] = useState("");
+  const [evaluationRisk, setEvaluationRisk] = useState("");
+  const [objectivesTherapeuticsInitials, setObjectivesTherapeuticsInitials] = useState("");
+  const [provisionalDiagnosis, setProvisionalDiagnosis] = useState("");
+  const [evaluationDiagnosis, setEvaluationDiagnosis] = useState("");
+  const [planningTreatment, setPlanningTreatment] = useState("");
+  const [therapeuticInterventions, setTherapeuticInterventions] = useState("");
+  const [recommendedActivities, setRecommendedActivities] = useState("");
+  const [medicines, setMedicines] = useState("");
+  const [dose, setDose] = useState("");
+  const [frequency, setFrequency] = useState("");
+  const [duration, setDuration] = useState("");
+  const [discussedTopics, setDiscussedTopics] = useState("");
+  const [therapeuticTechniques, setTherapeuticTechniques] = useState("");
+  const [progress, setProgress] = useState("");
+  const [reviewsTreatment, setReviewsTreatment] = useState("");
+  const [adjustmentsMade, setAdjustmentsMade] = useState("");
+  const [treatmentEffectiveness, setTreatmentEffectiveness] = useState("");
+  const [observations, setObservations] = useState("");
+  const [importantEvents, setImportantEvents] = useState("");
+  const [feedbackPatient, setFeedbackPatient] = useState("");
+  const [alert, setAlert] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // form patinet validation
+    if(name === "") {
+        setAlert("El Nombre es el único campo obligatorio");
+    }
+    
+    try {
+        await 
+    } catch (error) {
+        setAlert(error.response.data.msg);
+    }
+  }
+
   return (
     <>
       <h2>Añade un Nuevo Paciente</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
+      <p>{alert}</p>
         <details>
           <summary>Información personal básica:</summary>
           <div>
-            <label>
-              Nombre
-              <input
-                type="text"
-                id="patient__name"
-                placeholder="Nombre del paciente"
-              />
-            </label>
+            <InputWithLabel
+              label={"Nombre"}
+              placeholder={"Nombre del paciente"}
+              value={name}
+              onchange={setName}
+            />
           </div>
           <div>
-            <label>
-              Edad
-              <input type="text" id="patient__age" placeholder="Edad actual" />
-            </label>
+            <InputWithLabel
+              label={"Edad"}
+              placeholder={"Edad actual"}
+              value={age}
+              onchange={setAge}
+            />
           </div>
           <div>
-            <label>
-              Género
-              <input
-                type="text"
-                id="patient__gender"
-                placeholder="Identificación de género del paciente"
-              />
-            </label>
+            <InputWithLabel
+              label={"Género"}
+              placeholder={"Identificación de género del paciente"}
+              value={gender}
+              onchange={setGender}
+            />
           </div>
           <div>
-            <label>
-              Escolaridad
-              <input
-                type="text"
-                id="patient__scholarship"
-                placeholder="Grado de estudios del paciente"
-              />
-            </label>
+            <InputWithLabel
+              label={"Escolaridad"}
+              placeholder={"Grado academico del paciente"}
+              value={scholarship}
+              onchange={setScholarship}
+            />
           </div>
           <div>
-            <label>
-              Telefono
-              <input
-                type="text"
-                id="patient__phone"
-                placeholder="Número de contacto del paciente"
-              />
-            </label>
+            <InputWithLabel
+              label={"Telefono"}
+              placeholder={"Número de contacto del paciente"}
+              value={phone}
+              onchange={setPhone}
+            />
           </div>
           <div>
-            <label>
-              Correo
-              <input
-                type="text"
-                id="patient__email"
-                placeholder="Dirección de correo electrónico del paciente"
-              />
-            </label>
+            <InputWithLabel
+              label={"Correo"}
+              placeholder={"Dirección de correo electrónico del paciente"}
+              value={email}
+              onchange={setEmail}
+            />
           </div>
           <div>
-            <label>
-              Dirección
-              <input
-                type="text"
-                id="patient__adress"
-                placeholder="Direccón fisica del paciente"
-              />
-            </label>
+            <InputWithLabel
+              label={"Dirección"}
+              placeholder={"Dirección de fisica del paciente"}
+              value={address}
+              onchange={setAddress}
+            />
           </div>
         </details>
         <details>
           <summary>Historial clinico:</summary>
           <div>
-            <label>
-              Motivo de consulta
-              <textarea
-                type="text"
-                id="patient__reason"
-                placeholder="Motivo principal de consulta"
-              />
-            </label>
+            <TextareaWithLabel
+              label={"Motivo de consulta"}
+              placeholder={"Motivo principal de consulta"}
+              value={reasonForConsultation}
+              onchange={setReasonForConsultation}
+            />
           </div>
           <div>
-            <label>
-              Antecedentes médicos
-              <textarea
-                type="text"
-                id="patient__medicalHistory"
-                placeholder="Historia de la salud física del paciente"
-              />
-            </label>
+            <TextareaWithLabel
+              label={"Antecedentes médicos"}
+              placeholder={"Historia de la salud física del paciente"}
+              value={medicalHistory}
+              onchange={setMedicalHistory}
+            />
           </div>
           <div>
-            <label>
-              Antecedentes familiares
-              <textarea
-                type="text"
-                id="patient__family"
-                placeholder="Salud de familiares cercanos"
-              />
-            </label>
+            <TextareaWithLabel
+              label={"Antecedentes familiares"}
+              placeholder={"Salud de familiares cercanos"}
+              value={familyBackground}
+              onchange={setFamilyBackground}
+            />
           </div>
           <div>
-            <label>
-              Historial de tratamientos anteriores
-              <textarea
-                type="text"
-                id="patient__previousTreatments"
-                placeholder="Registro de tratamientos previos"
-              />
-            </label>
+            <TextareaWithLabel
+              label={"Historial de tratamientos anteriores"}
+              placeholder={"Registro de tratamientos previos"}
+              value={previousTreatments}
+              onchange={setPreviousTreatments}
+            />
           </div>
         </details>
         <details>
           <summary>Evaluación inicial:</summary>
           <div>
-            <label>
-              Evaluación de la salud mental
-              <textarea
-                type="text"
-                id="patient__mentalEvaluation"
-                placeholder="Evaluación general del estado mental del paciente"
-              />
-            </label>
+            <TextareaWithLabel
+              label={"Evaluación de la salud mental"}
+              placeholder={"Evaluación general del estado mental del paciente"}
+              value={evaluationMentalHealth}
+              onchange={setEvaluationMentalHealth}
+            />
           </div>
           <div>
-            <label>
-              Evaluación de riesgo
-              <textarea
-                type="text"
-                id="patient__riskEvaluation"
-                placeholder="Evaluación de posibles amenazas a la salud mental del paciente"
-              />
-            </label>
+            <TextareaWithLabel
+              label={"Evaluación de riesgo"}
+              placeholder={
+                "Evaluación de posibles amenazas a la salud mental del paciente"
+              }
+              value={evaluationRisk}
+              onchange={setEvaluationRisk}
+            />
           </div>
           <div>
-            <label>
-              Objetivos terapéuticos iniciales
-              <textarea
-                type="text"
-                id="patient__mentalGoals"
-                placeholder="Metas iniciales para la terapia"
-              />
-            </label>
+            <TextareaWithLabel
+              label={"Objetivos terapéuticos iniciales"}
+              placeholder={"Metas iniciales para la terapia"}
+              value={objectivesTherapeuticsInitials}
+              onchange={setObjectivesTherapeuticsInitials}
+            />
           </div>
         </details>
         <details>
           <summary>Diagnostico:</summary>
           <div>
-            <label>
-              Diagnóstico provisional
-              <textarea
-                type="text"
-                id="patient__provitionalD"
-                placeholder="Evaluación inicial del estado del paciente"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Diagnóstico provisional"}
+              placeholder={"Evaluación inicial del estado del paciente"}
+              value={provisionalDiagnosis}
+              onchange={setProvisionalDiagnosis}
+            />
           </div>
           <div>
-            <label>
-              Observaciones sobre la evolución del diagnóstico
-              <textarea
-                type="text"
-                id="patient__observationsD"
-                placeholder="Notas sobre cambios en el diagnóstico"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Observaciones sobre la evolución del diagnóstico"}
+              placeholder={"Notas sobre cambios en el diagnóstico"}
+              value={evaluationDiagnosis}
+              onchange={setEvaluationDiagnosis}
+            />
           </div>
         </details>
         <details>
           <summary>Tratamiento y planificación:</summary>
           <div>
-            <label>
-              Plan de tratamiento
-              <textarea
-                type="text"
-                id="patient__plan"
-                placeholder="Estrategias y metas terapéuticas"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Plan de tratamiento"}
+              placeholder={"Estrategias y metas terapéuticas"}
+              value={planningTreatment}
+              onchange={setPlanningTreatment}
+          />
           </div>
           <div>
-            <label>
-              Intervenciones terapéuticas
-              <textarea
-                type="text"
-                id="patient__observationsT"
-                placeholder="Acciones específicas para abordar los problemas"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Intervenciones terapéuticas"}
+              placeholder={"Acciones específicas para abordar los problemas"}
+              value={therapeuticInterventions}
+              onchange={setTherapeuticInterventions}
+          />
           </div>
           <div>
-            <label>
-              Actividades recomendadas entre sesiones
-              <textarea
-                type="text"
-                id="patient__activities"
-                placeholder="Tareas sugeridas para realizar fuera de las sesiones"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Actividades recomendadas entre sesiones"}
+              placeholder={"Tareas sugeridas para realizar fuera de las sesiones"}
+              value={recommendedActivities}
+              onchange={setRecommendedActivities}
+          />
           </div>
         </details>
         <details>
           <summary>Medicación:</summary>
           <div>
-            <label>
-              Medicamentos recetados
-              <textarea
-                type="text"
-                id="patient__medicinesName"
-                placeholder="Lista de medicamentos y sus nombres"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Medicamentos recetados"}
+              placeholder={"Lista de medicamentos y sus nombres"}
+              value={medicines}
+              onchange={setMedicines}
+          />
           </div>
           <div>
-            <label>
-              Dosis
-              <textarea
-                type="text"
-                id="patient__medicinesDose"
-                placeholder=" Indicaciones sobre la dosis"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Dosis"}
+              placeholder={"Indicaciones sobre la dosis"}
+              value={dose}
+              onchange={setDose}
+          />
           </div>
           <div>
-            <label>
-              Frecuencia
-              <textarea
-                type="text"
-                id="patient__medicinesDose"
-                placeholder="Indicaciones sobre cómo tomar la medicación"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Frecuencia"}
+              placeholder={"Indicaciones sobre cómo tomar la medicación"}
+              value={frequency}
+              onchange={setFrequency}
+          />
           </div>
         </details>
         <details>
           <summary>Sesiones y notas de progreso:</summary>
           <div>
-            <label>
-              Fechas y duración de las sesiones
-              <input
-                type="text"
-                id="patient__duration"
-                placeholder="Registro temporal de las sesiones terapéuticas"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Fechas y duración de las sesiones"}
+              placeholder={"Registro temporal de las sesiones terapéuticas"}
+              value={duration}
+              onchange={setDuration}
+          />
           </div>
           <div>
-            <label>
-              Temas discutidos
-              <textarea
-                type="text"
-                id="patient__topics"
-                placeholder="Asuntos abordados durante las sesiones"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Temas discutidos"}
+              placeholder={"Temas abordados durante las sesiones"}
+              value={discussedTopics}
+              onchange={setDiscussedTopics}
+          />
           </div>
           <div>
-            <label>
-              Técnicas terapéuticas utilizadas
-              <textarea
-                type="text"
-                id="patient__methods"
-                placeholder="Métodos específicos empleados en la terapia"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Técnicas terapéuticas utilizadas"}
+              placeholder={"Métodos específicos empleados en la terapia"}
+              value={therapeuticTechniques}
+              onchange={setTherapeuticTechniques}
+          />
           </div>
           <div>
-            <label>
-              Evaluación del progreso del paciente
-              <textarea
-                type="text"
-                id="patient__progress"
-                placeholder="Valoración del avance del paciente"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Evaluación del progreso del paciente"}
+              placeholder={"Valoración del avance del paciente"}
+              value={progress}
+              onchange={setProgress}
+          />
           </div>
         </details>
         <details>
           <summary>Evaluación continua:</summary>
           <div>
-            <label>
-              Revisiones del plan de tratamiento
-              <textarea
-                type="text"
-                id="patient__reviews"
-                placeholder="Actualización y ajuste del plan terapéutico"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Revisiones del plan de tratamiento"}
+              placeholder={"Actualización y ajuste del plan terapéutico"}
+              value={reviewsTreatment}
+              onchange={setReviewsTreatment}
+          />
           </div>
           <div>
-            <label>
-              Ajustes realizados
-              <textarea
-                type="text"
-                id="patient__adjusments"
-                placeholder="Cambios hechos en respuesta al progreso del paciente"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Ajustes realizados"}
+              placeholder={"Cambios hechos en respuesta al progreso del paciente"}
+              value={adjustmentsMade}
+              onchange={setAdjustmentsMade}
+          />
           </div>
           <div>
-            <label>
-              Evaluación de la efectividad del tratamiento
-              <textarea
-                type="text"
-                id="patient__effectiveness"
-                placeholder="Valoración de la eficacia de las intervenciones"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Evaluación de la efectividad del tratamiento"}
+              placeholder={"Valoración de la eficacia de las intervenciones"}
+              value={treatmentEffectiveness}
+              onchange={setTreatmentEffectiveness}
+          />
           </div>
         </details>
         <details>
           <summary>Notas adicionales:</summary>
           <div>
-            <label>
-              Observaciones relevantes
-              <textarea
-                type="text"
-                id="patient__observations"
-                placeholder="Comentarios importantes relacionados con el tratamiento"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Observaciones relevantes"}
+              placeholder={"Comentarios importantes relacionados con el tratamiento"}
+              value={observations}
+              onchange={setObservations}
+          />
           </div>
           <div>
-            <label>
-              Eventos importantes en la vida del paciente
-              <textarea
-                type="text"
-                id="patient__events"
-                placeholder="Sucesos significativos en la vida del paciente"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Eventos importantes en la vida del paciente"}
+              placeholder={"Sucesos significativos en la vida del paciente"}
+              value={importantEvents}
+              onchange={setImportantEvents}
+          />
           </div>
           <div>
-            <label>
-              Feedback del paciente sobre el tratamiento
-              <textarea
-                type="text"
-                id="patient__opinion"
-                placeholder="Respuestas y opiniones del paciente sobre la terapia"
-              />
-            </label>
+          <TextareaWithLabel
+              label={"Feedback del paciente sobre el tratamiento"}
+              placeholder={"Respuestas y opiniones del paciente sobre la terapia"}
+              value={feedbackPatient}
+              onchange={setFeedbackPatient}
+          />
           </div>
         </details>
         <button>Añadir Paciente</button>
