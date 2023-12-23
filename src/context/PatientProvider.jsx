@@ -7,6 +7,29 @@ export const PatientProvider = ({ children }) => {
   // will be avalible patients just
   const [patients, setPatient] = useState(null);
 
+  useEffect(() => {
+    // get patients
+    const getPatients = async () => {
+      try {
+        const token = localStorage.getItem("psychoTrackerToken");
+        if (!token) {
+          return;
+        }
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const { data } = await clientAxios.get("/patient", config);
+        setPatient(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getPatients();
+  }, []);
+
   const savePatient = async (patient) => {
     try {
       const token = localStorage.getItem("psychoTrackerToken");

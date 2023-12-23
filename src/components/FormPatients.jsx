@@ -11,6 +11,7 @@ export const FormPatients = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [address, setAddress] = useState("");
+  const [date, setDate] = useState("");
   const [reasonForConsultation, setReasonForConsultation] = useState("");
   const [medicalHistory, setMedicalHistory] = useState("");
   const [familyBackground, setFamilyBackground] = useState("");
@@ -57,6 +58,7 @@ export const FormPatients = () => {
       email,
       phone,
       address,
+      date,
       scholarship,
       reasonForConsultation,
       medicalHistory,
@@ -149,6 +151,14 @@ export const FormPatients = () => {
               value={address}
               onchange={setAddress}
             />
+          </div>
+          <div>
+            <label>Fecha
+              <input type="datetime-local" 
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              />
+            </label>
           </div>
         </details>
         <details>
