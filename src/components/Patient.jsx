@@ -38,41 +38,139 @@ export const Patient = ({ patient }) => {
     feedbackPatient,
   } = patient;
 
+  // formating the date
+  const formatDate = () => {
+    const newDate = new Date(date);
+    return new Intl.DateTimeFormat("es-MX", { dateStyle: "long" }).format(
+      newDate
+    );
+  };
+
   return (
     <>
       <PatientInfo field="Nombre" data={name} />
-      <PatientInfo field="Edad" data={age} />
-      <PatientInfo field="Género" data={gender} />
-      <PatientInfo field="Correo" data={email} />
-      <PatientInfo field="Telefono" data={phone} />
-      <PatientInfo field="Dirección" data={address} />
-      <PatientInfo field="Escolaridad" data={scholarship} />
-      <PatientInfo field="Fecha" data={date} />
-      <PatientInfo field="Motivo de Consulta" data={reasonForConsultation} />
-      <PatientInfo field="Antecendentes médicos" data={medicalHistory} />
-      <PatientInfo field="Antecedentes familiares" data={familyBackground} />
-      <PatientInfo field="Historial de tratamientos anteriores" data={previousTreatments} />
-      <PatientInfo field="Evaluación de la salud mental" data={evaluationMentalHealth} />
-      <PatientInfo field="Evaluación de riesgo" data={evaluationRisk} />
-      <PatientInfo field="Objetivos terapéuticos iniciales" data={objectivesTherapeuticsInitials} />
-      <PatientInfo field="Diagnóstico provisional" data={provisionalDiagnosis} />
-      <PatientInfo field="Observaciones sobre la evolución del diagnóstico" data={evaluationDiagnosis} />
-      <PatientInfo field="Plan de tratamiento" data={planningTreatment} />
-      <PatientInfo field="Intervenciones terapéuticas" data={therapeuticInterventions} />
-      <PatientInfo field="Actividades recomendadas entre sesiones" data={recommendedActivities} />
-      <PatientInfo field="Medicamentos recetados" data={medicines} />
-      <PatientInfo field="Dosis" data={dose} />
-      <PatientInfo field="Frecuencia" data={frequency} />
-      <PatientInfo field="Fechas y duración de las sesiones" data={duration} />
-      <PatientInfo field="Temas discutidos" data={discussedTopics} />
-      <PatientInfo field="Técnicas terapéuticas utilizadas" data={therapeuticTechniques} />
-      <PatientInfo field="Evaluación del progreso del paciente" data={progress} />
-      <PatientInfo field="Revisiones del plan de tratamiento" data={reviewsTreatment} />
-      <PatientInfo field="Ajustes realizados" data={adjustmentsMade} />
-      <PatientInfo field="Evaluación de la efectividad del tratamiento" data={treatmentEffectiveness} />
-      <PatientInfo field="Observaciones relevantes" data={observations} />
-      <PatientInfo field="Eventos importantes en la vida del paciente" data={importantEvents} />
-      <PatientInfo field="Feedback del paciente sobre el tratamiento" data={feedbackPatient} />
+      {age && <PatientInfo field="Edad" data={age} />}
+      {gender && <PatientInfo field="Género" data={gender} />}
+      {email && <PatientInfo field="Correo" data={email} />}
+      {phone && <PatientInfo field="Telefono" data={phone} />}
+      {address && <PatientInfo field="Dirección" data={address} />}
+      {scholarship && <PatientInfo field="Escolaridad" data={scholarship} />}
+      {date && <PatientInfo field="Fecha" data={formatDate(date)} />}
+      {reasonForConsultation && (
+        <PatientInfo field="Motivo de Consulta" data={reasonForConsultation} />
+      )}
+      {medicalHistory && (
+        <PatientInfo field="Antecendentes médicos" data={medicalHistory} />
+      )}
+      {familyBackground && (
+        <PatientInfo field="Antecedentes familiares" data={familyBackground} />
+      )}
+      {previousTreatments && (
+        <PatientInfo
+          field="Historial de tratamientos anteriores"
+          data={previousTreatments}
+        />
+      )}
+      {evaluationMentalHealth && (
+        <PatientInfo
+          field="Evaluación de la salud mental"
+          data={evaluationMentalHealth}
+        />
+      )}
+      {evaluationRisk && (
+        <PatientInfo field="Evaluación de riesgo" data={evaluationRisk} />
+      )}
+      {objectivesTherapeuticsInitials && (
+        <PatientInfo
+          field="Objetivos terapéuticos iniciales"
+          data={objectivesTherapeuticsInitials}
+        />
+      )}
+      {provisionalDiagnosis && (
+        <PatientInfo
+          field="Diagnóstico provisional"
+          data={provisionalDiagnosis}
+        />
+      )}
+      {evaluationDiagnosis && (
+        <PatientInfo
+          field="Observaciones sobre la evolución del diagnóstico"
+          data={evaluationDiagnosis}
+        />
+      )}
+      {planningTreatment && (
+        <PatientInfo field="Plan de tratamiento" data={planningTreatment} />
+      )}
+      {therapeuticInterventions && (
+        <PatientInfo
+          field="Intervenciones terapéuticas"
+          data={therapeuticInterventions}
+        />
+      )}
+      {recommendedActivities && (
+        <PatientInfo
+          field="Actividades recomendadas entre sesiones"
+          data={recommendedActivities}
+        />
+      )}
+      {medicines && (
+        <PatientInfo field="Medicamentos recetados" data={medicines} />
+      )}
+      {dose && <PatientInfo field="Dosis" data={dose} />}
+      {frequency && <PatientInfo field="Frecuencia" data={frequency} />}
+      {duration && (
+        <PatientInfo
+          field="Fechas y duración de las sesiones"
+          data={duration}
+        />
+      )}
+      {discussedTopics && (
+        <PatientInfo field="Temas discutidos" data={discussedTopics} />
+      )}
+      {therapeuticTechniques && (
+        <PatientInfo
+          field="Técnicas terapéuticas utilizadas"
+          data={therapeuticTechniques}
+        />
+      )}
+      {progress && (
+        <PatientInfo
+          field="Evaluación del progreso del paciente"
+          data={progress}
+        />
+      )}
+      {reviewsTreatment && (
+        <PatientInfo
+          field="Revisiones del plan de tratamiento"
+          data={reviewsTreatment}
+        />
+      )}
+      {adjustmentsMade && (
+        <PatientInfo field="Ajustes realizados" data={adjustmentsMade} />
+      )}
+      {treatmentEffectiveness && (
+        <PatientInfo
+          field="Evaluación de la efectividad del tratamiento"
+          data={treatmentEffectiveness}
+        />
+      )}
+      {observations && (
+        <PatientInfo field="Observaciones relevantes" data={observations} />
+      )}
+      {importantEvents && (
+        <PatientInfo
+          field="Eventos importantes en la vida del paciente"
+          data={importantEvents}
+        />
+      )}
+      {feedbackPatient && (
+        <PatientInfo
+          field="Feedback del paciente sobre el tratamiento"
+          data={feedbackPatient}
+        />
+      )}
+      <button type="button">Editar</button>
+      <button type="button">Eliminar</button>
     </>
   );
 };
