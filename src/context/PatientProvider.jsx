@@ -8,21 +8,23 @@ export const PatientProvider = ({ children }) => {
   const [patients, setPatients] = useState([]);
   const [patient, setPatient] = useState({});
 
+  // token and Axios congif for request
+  const token = localStorage.getItem("psychoTrackerToken");
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
   
   useEffect(() => {
     // get patients
     const getPatients = async () => {
       try {
-        const token = localStorage.getItem("psychoTrackerToken");
         if (!token) {
           return;
         }
-        const config = {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        };
         const { data } = await clientAxios.get("/patient", config);
         setPatients(data);
       } catch (error) {
@@ -30,16 +32,9 @@ export const PatientProvider = ({ children }) => {
       }
     };
     getPatients();
-  }, []);
+  }, [config, token]);
   
   const savePatient = async (patient) => {
-    const token = localStorage.getItem("psychoTrackerToken");
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
     // edit or new patinet functions
     if (patient.id) {
       try {
@@ -75,7 +70,7 @@ export const PatientProvider = ({ children }) => {
     const confirmationDelete = confirm(`¿Estás seguro que deseas eliminar a tu paciente ${patient.name}?`)
     if(confirmationDelete){
       try {
-        console.log('eliminando');
+        const { data } = await clientAxios.delete(`/patient/${patient._id}`, config);
       } catch (error) {
         console.log(error);
       }
