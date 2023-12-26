@@ -129,6 +129,42 @@ export const FormPatients = () => {
       id,
     });
     setAlert("Paciente guardado exitosamente");
+    // cleaning fields
+    setId("");
+    setName("");
+    setAge("");
+    setGender("");
+    setScholarship("");
+    setPhone("");
+    setEmail("");
+    setAddress("");
+    setDate("");
+    setReasonForConsultation("");
+    setMedicalHistory("");
+    setFamilyBackground("");
+    setPreviousTreatments("");
+    setEvaluationMentalHealth("");
+    setEvaluationRisk("");
+    setObjectivesTherapeuticsInitials("");
+    setProvisionalDiagnosis("");
+    setEvaluationDiagnosis("");
+    setPlanningTreatment("");
+    setTherapeuticInterventions("");
+    setTherapeuticInterventions("");
+    setRecommendedActivities("");
+    setMedicines("");
+    setDose("");
+    setFrequency("");
+    setDuration("");
+    setDiscussedTopics("");
+    setTherapeuticTechniques("");
+    setProgress("");
+    setReviewsTreatment("");
+    setAdjustmentsMade("");
+    setTreatmentEffectiveness("");
+    setObservations("");
+    setImportantEvents("");
+    setFeedbackPatient("");
   };
   
 

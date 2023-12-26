@@ -50,10 +50,6 @@ export const PatientProvider = ({ children }) => {
         );
         const updatedPatinet = patients.map(patientSaved => (patientSaved._id === data._id ? data : patientSaved))
         setPatients(updatedPatinet);
-        console.log(
-          "🚀 ~ file: PatientProvider.jsx:59 ~ savePatient ~ data:",
-          data
-        );
       } catch (error) {
         console.log(error.response.data.msg);
       }
