@@ -48,12 +48,14 @@ export const PatientProvider = ({ children }) => {
           patient,
           config
         );
+        const updatedPatinet = patients.map(patientSaved => (patientSaved._id === data._id ? data : patientSaved))
+        setPatients(updatedPatinet);
         console.log(
           "🚀 ~ file: PatientProvider.jsx:59 ~ savePatient ~ data:",
           data
         );
       } catch (error) {
-        console.log(error);
+        console.log(error.response.data.msg);
       }
     } else {
       try {
@@ -61,7 +63,7 @@ export const PatientProvider = ({ children }) => {
         //   deleting properties using rest operator
         const { createdAt, __v, updatedAt, ...savedPatient } = data;
         //   addint a copy of patiens + new patient with spread operator
-        setPatients([savedPatient, ...patients]);
+        setPatients(prevPatients => [savedPatient, ...prevPatients]);
       } catch (error) {
         console.log(error.response.data.msg);
         setPatients([]);
@@ -77,7 +79,7 @@ export const PatientProvider = ({ children }) => {
     <PatientContext.Provider
       value={{ patients, savePatient, editPatient, patient }}
     >
-      {children}
+      { children }
     </PatientContext.Provider>
   );
 };
