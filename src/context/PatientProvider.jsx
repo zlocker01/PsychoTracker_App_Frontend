@@ -71,9 +71,20 @@ export const PatientProvider = ({ children }) => {
     setPatient(patient);
   };
 
+  const deletePatient = async (patient) => {
+    const confirmationDelete = confirm(`¿Estás seguro que deseas eliminar a tu paciente ${patient.name}?`)
+    if(confirmationDelete){
+      try {
+        console.log('eliminando');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
   return (
     <PatientContext.Provider
-      value={{ patients, savePatient, editPatient, patient }}
+      value={{ patients, savePatient, editPatient, patient, deletePatient }}
     >
       { children }
     </PatientContext.Provider>

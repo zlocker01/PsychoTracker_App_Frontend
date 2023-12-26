@@ -2,7 +2,7 @@ import { PatientInfo } from "./PatientInfo";
 import { usePatients } from "../hooks/usePatients";
 
 export const Patient = ({ patient }) => {
-  const { editPatient } = usePatients();
+  const { editPatient, deletePatient } = usePatients();
 
   // showing the patients in UI
   const {
@@ -172,8 +172,12 @@ export const Patient = ({ patient }) => {
           data={feedbackPatient}
         />
       )}
-      <button type="button" onClick={() => (editPatient(patient))}>Editar</button>
-      <button type="button">Eliminar</button>
+      <button type="button" onClick={() => editPatient(patient)}>
+        Editar
+      </button>
+      <button type="button" onClick={() => deletePatient(patient)}>
+        Eliminar
+      </button>
     </>
   );
 };
