@@ -8,6 +8,7 @@ export const PatientProvider = ({ children }) => {
   const [patients, setPatients] = useState([]);
   const [patient, setPatient] = useState({});
 
+  
   useEffect(() => {
     // get patients
     const getPatients = async () => {
@@ -30,7 +31,7 @@ export const PatientProvider = ({ children }) => {
     };
     getPatients();
   }, []);
-
+  
   const savePatient = async (patient) => {
     const token = localStorage.getItem("psychoTrackerToken");
     const config = {
@@ -40,18 +41,19 @@ export const PatientProvider = ({ children }) => {
       },
     };
     // edit or new patinet functions
-    if (patient._id) {
+    if (patient.id) {
       try {
         const { data } = await clientAxios.put(
           `/patient/${patient.id}`,
           patient,
           config
         );
-        const patientsUpdated = patient.map( patientState => patientState._id === data._id ? data : patientState);
-        setPatients(patientsUpdated);
+        console.log(
+          "🚀 ~ file: PatientProvider.jsx:59 ~ savePatient ~ data:",
+          data
+        );
       } catch (error) {
-        console.log(error.response.data.msg);
-        setPatients({});
+        console.log(error);
       }
     } else {
       try {
@@ -62,7 +64,7 @@ export const PatientProvider = ({ children }) => {
         setPatients([savedPatient, ...patients]);
       } catch (error) {
         console.log(error.response.data.msg);
-        setPatients({});
+        setPatients([]);
       }
     }
   };
