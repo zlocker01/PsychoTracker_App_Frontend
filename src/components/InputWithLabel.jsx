@@ -5,7 +5,7 @@ export const InputWithLabel = ({ label, placeholder, value, onchange }) => {
       <input
         type="text"
         placeholder={placeholder}
-        value={value}
+        value={value || ""}
         onChange={(e) => onchange(e.target.value)}
       />
     </label>

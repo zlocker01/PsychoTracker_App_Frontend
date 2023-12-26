@@ -5,7 +5,7 @@ export const TextareaWithLabel = ({ label, placeholder, value, onchange }) => {
       <textarea
         type="text"
         placeholder={placeholder}
-        value={value}
+        value={value || ""}
         onChange={(e) => onchange(e.target.value)}
       />
     </label>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { InputWithLabel } from "./InputWithLabel";
 import { TextareaWithLabel } from "./TextareaWithLabel";
 import { usePatients } from "../hooks/usePatients";
@@ -37,14 +37,55 @@ export const FormPatients = () => {
   const [observations, setObservations] = useState("");
   const [importantEvents, setImportantEvents] = useState("");
   const [feedbackPatient, setFeedbackPatient] = useState("");
+  const [id, setId] = useState("");
   const [alert, setAlert] = useState("");
 
   // using patients context
-  const { savePatient } = usePatients();
+  const { savePatient, patient } = usePatients();
+
+  useEffect(() => {
+    // edditing on form  if name isn´t falsy
+    if (patient?.name) {
+      setId(patient._id);
+      setName(patient.name);
+      setAge(patient.age);
+      setGender(patient.gender);
+      setScholarship(patient.scholarship);
+      setPhone(patient.phone);
+      setEmail(patient.email);
+      setAddress(patient.address);
+      setDate(patient.date);
+      setReasonForConsultation(patient.reasonForConsultation);
+      setMedicalHistory(patient.medicalHistory);
+      setFamilyBackground(patient.familyBackground);
+      setPreviousTreatments(patient.previousTreatments);
+      setEvaluationMentalHealth(patient.evaluationMentalHealth);
+      setEvaluationRisk(patient.evaluationRisk);
+      setObjectivesTherapeuticsInitials(patient.objectivesTherapeuticsInitials);
+      setProvisionalDiagnosis(patient.provisionalDiagnosis);
+      setEvaluationDiagnosis(patient.evaluationDiagnosis);
+      setPlanningTreatment(patient.planningTreatment);
+      setTherapeuticInterventions(patient.therapeuticInterventions);
+      setTherapeuticInterventions(patient.therapeuticInterventions);
+      setRecommendedActivities(patient.recommendedActivities);
+      setMedicines(patient.medicines);
+      setDose(patient.dose);
+      setFrequency(patient.frequency);
+      setDuration(patient.duration);
+      setDiscussedTopics(patient.discussedTopics);
+      setTherapeuticTechniques(patient.therapeuticTechniques);
+      setProgress(patient.progress);
+      setReviewsTreatment(patient.reviewsTreatment);
+      setAdjustmentsMade(patient.adjustmentsMade);
+      setTreatmentEffectiveness(patient.treatmentEffectiveness);
+      setObservations(patient.observations);
+      setImportantEvents(patient.importantEvents);
+      setFeedbackPatient(patient.feedbackPatient);
+    }
+  }, [patient]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     // form patinet validation
     if (name === "") {
       setAlert("El Nombre es el único campo obligatorio");
@@ -85,9 +126,11 @@ export const FormPatients = () => {
       observations,
       importantEvents,
       feedbackPatient,
+      id,
     });
     setAlert("Paciente guardado exitosamente");
   };
+  
 
   return (
     <>
@@ -153,10 +196,12 @@ export const FormPatients = () => {
             />
           </div>
           <div>
-            <label>Fecha
-              <input type="datetime-local" 
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+            <label>
+              Fecha
+              <input
+                type="datetime-local"
+                value={date || ''}
+                onChange={(e) => setDate(e.target.value)}
               />
             </label>
           </div>
@@ -395,7 +440,7 @@ export const FormPatients = () => {
             />
           </div>
         </details>
-        <button>Añadir Paciente</button>
+        <button>{id ? "Guardar Cambios" : "Añadir Paciente"}</button>
       </form>
     </>
   );
