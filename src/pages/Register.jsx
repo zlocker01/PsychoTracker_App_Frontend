@@ -3,8 +3,6 @@ import { FormInput } from "../components/FormInput";
 import { NavLink } from "../components/NavLink";
 import { clientAxios } from "../config/axios";
 
-
-
 export const Register = () => {
   // states for inputs
   const [name, setName] = useState("");

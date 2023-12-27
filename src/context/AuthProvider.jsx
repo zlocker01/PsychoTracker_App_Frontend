@@ -44,9 +44,13 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("psychoTrackerToken");
     setAuth(null);
   };
+
+  const updateProfile = () => {
+    console.log('listo');
+  }
   
   return (
-    <AuthContext.Provider value={{ auth, setAuth, isCharging, logOut }}>
+    <AuthContext.Provider value={{ auth, setAuth, isCharging, logOut, updateProfile }}>
       {children}
     </AuthContext.Provider>
   );

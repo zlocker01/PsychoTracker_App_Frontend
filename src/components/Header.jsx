@@ -11,7 +11,7 @@ export const Header = () => {
       </div>
       <nav>
         <NavLink url="/admin" text="Pacientes" />
-        <NavLink url="/admin" text="Perfil" />
+        <NavLink url="/admin/profile" text="Perfil" />
         <button type="button" onClick={logOut}>Cerrar Sesión</button>
       </nav>
     </header>

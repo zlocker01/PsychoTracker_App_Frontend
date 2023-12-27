@@ -10,14 +10,13 @@ export const PatientProvider = ({ children }) => {
 
   // token and Axios congif for request
   const token = localStorage.getItem("psychoTrackerToken");
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
 
-  
   useEffect(() => {
     // get patients
     const getPatients = async () => {
@@ -33,7 +32,7 @@ export const PatientProvider = ({ children }) => {
     };
     getPatients();
   }, [config, token]);
-  
+
   const savePatient = async (patient) => {
     // edit or new patinet functions
     if (patient.id) {
@@ -43,7 +42,9 @@ export const PatientProvider = ({ children }) => {
           patient,
           config
         );
-        const updatedPatinet = patients.map(patientSaved => (patientSaved._id === data._id ? data : patientSaved))
+        const updatedPatinet = patients.map((patientSaved) =>
+          patientSaved._id === data._id ? data : patientSaved
+        );
         setPatients(updatedPatinet);
       } catch (error) {
         console.log(error.response.data.msg);
@@ -54,7 +55,7 @@ export const PatientProvider = ({ children }) => {
         //   deleting properties using rest operator
         const { createdAt, __v, updatedAt, ...savedPatient } = data;
         //   addint a copy of patiens + new patient with spread operator
-        setPatients(prevPatients => [savedPatient, ...prevPatients]);
+        setPatients((prevPatients) => [savedPatient, ...prevPatients]);
       } catch (error) {
         console.log(error.response.data.msg);
         setPatients([]);
@@ -67,21 +68,26 @@ export const PatientProvider = ({ children }) => {
   };
 
   const deletePatient = async (patient) => {
-    const confirmationDelete = confirm(`¿Estás seguro que deseas eliminar a tu paciente ${patient.name}?`)
-    if(confirmationDelete){
+    const confirmationDelete = confirm(
+      `¿Estás seguro que deseas eliminar a tu paciente ${patient.name}?`
+    );
+    if (confirmationDelete) {
       try {
-        const { data } = await clientAxios.delete(`/patient/${patient._id}`, config);
+        const { data } = await clientAxios.delete(
+          `/patient/${patient._id}`,
+          config
+        );
       } catch (error) {
         console.log(error);
       }
     }
-  }
+  };
 
   return (
     <PatientContext.Provider
       value={{ patients, savePatient, editPatient, patient, deletePatient }}
     >
-      { children }
+      {children}
     </PatientContext.Provider>
   );
 };
