@@ -45,36 +45,12 @@ export const AuthProvider = ({ children }) => {
     setAuth(null);
   };
 
-  const updateProfile = async (data) => {
-    const profile = data;
-    const token = localStorage.getItem("psychoTrackerToken");
-    if (!token) {
-      setIsCharging(false);
-      return;
-    }
-    // axios config to request the profile with the token access
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    try {
-      const url = `/psychologist/profile/${profile._id}`;
-      const { data } = await clientAxios.put(url, profile, config);
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
   
   return (
     <AuthContext.Provider
-      value={{ auth, setAuth, isCharging, logOut, updateProfile }}
+      value={{ auth, setAuth, isCharging, logOut }}
     >
       {children}
     </AuthContext.Provider>
   );
 };
-

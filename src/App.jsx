@@ -9,8 +9,6 @@ import { NewPassword } from "./pages/NewPassword";
 import { AuthProvider } from "./context/AuthProvider";
 import { AdminPatients } from "./pages/AdminPatients";
 import { PatientProvider } from "./context/PatientProvider";
-import { EditProfile } from "./pages/EditProfile";
-import { ChangePassword } from "./pages/ChangePassword";
 
 export function App() {
   return (
@@ -36,8 +34,6 @@ export function App() {
             </Route>
             <Route path="/admin" element={<ProtectedRoute />}>
               <Route index element={<AdminPatients />}></Route>
-              <Route path="profile" element={<EditProfile />}></Route>
-              <Route path="changePassword" element={<ChangePassword />}></Route>
             </Route>
           </Routes>
         </PatientProvider>
