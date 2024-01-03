@@ -1,0 +1,24 @@
+@import '_fonts';
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+a, button {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $principal-font;
+}
+
+p, a, button, option, span, summary {
+    font-family: $secondary-font;
+}
