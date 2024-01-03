@@ -10,8 +10,6 @@ export const Header = () => {
         <h1>PsychoTracker</h1>
       </div>
       <nav>
-        <NavLink url="/admin" text="Pacientes" />
-        <NavLink url="/admin/profile" text="Perfil" />
         <button type="button" onClick={logOut}>Cerrar Sesión</button>
       </nav>
     </header>

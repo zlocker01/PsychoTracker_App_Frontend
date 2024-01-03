@@ -47,7 +47,7 @@ export const FormPatients = () => {
     // edditing on form  if name isn´t falsy
     if (patient?.name) {
       setId(patient._id);
-      setName(patient.name);
+      setName(patient?.name);
       setAge(patient.age);
       setGender(patient.gender);
       setScholarship(patient.scholarship);
@@ -184,20 +184,23 @@ export const FormPatients = () => {
             />
           </div>
           <div>
-            <InputWithLabel
-              label={"Edad"}
-              placeholder={"Edad actual"}
-              value={age}
-              onchange={setAge}
-            />
+            <label>
+              Edad
+              <select value={age} onChange={(e) => setAge(e.target.value)}>
+                {[...Array(83)].map((_, index) => (
+                  <option key={index + 1} value={index + 1}>
+                    {index + 1}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
           <div>
-            <InputWithLabel
-              label={"Género"}
-              placeholder={"Identificación de género del paciente"}
-              value={gender}
-              onchange={setGender}
-            />
+            <label>Género:</label>
+            <select value={gender} onChange={(e) => setGender(e.target.value)}>
+              <option value="masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+            </select>
           </div>
           <div>
             <InputWithLabel
@@ -236,7 +239,7 @@ export const FormPatients = () => {
               Fecha
               <input
                 type="datetime-local"
-                value={date || ''}
+                value={date || ""}
                 onChange={(e) => setDate(e.target.value)}
               />
             </label>

@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { clientAxios } from "../config/axios";
+import { useAuth } from "../hooks/useAuth";
 
 export const PatientContext = createContext();
 
@@ -7,6 +8,8 @@ export const PatientProvider = ({ children }) => {
   // will be avalible patients just
   const [patients, setPatients] = useState([]);
   const [patient, setPatient] = useState({});
+
+  const { auth } = useAuth();
 
   // token and Axios congif for request
   const token = localStorage.getItem("psychoTrackerToken");
@@ -31,7 +34,7 @@ export const PatientProvider = ({ children }) => {
       }
     };
     getPatients();
-  }, [config, token]);
+  }, [auth]);
 
   const savePatient = async (patient) => {
     // edit or new patinet functions
@@ -77,6 +80,8 @@ export const PatientProvider = ({ children }) => {
           `/patient/${patient._id}`,
           config
         );
+        const patientsUpdate = patients.filter(patientsState => patientsState._id !== patient._id);
+        setPatients(patientsUpdate);
       } catch (error) {
         console.log(error);
       }
