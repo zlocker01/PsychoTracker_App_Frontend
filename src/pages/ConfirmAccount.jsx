@@ -28,7 +28,7 @@ export const ConfirmAccount = () => {
   return (
     <>
       <h2>Confirmando Cuenta</h2>
-      <p>{alert}</p>
+      <p className="alert">{alert}</p>
       {isConfirmed && <NavLink url="/" text="Iniciar Sesión" />}
     </>
   );

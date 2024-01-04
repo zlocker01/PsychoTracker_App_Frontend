@@ -1,7 +1,5 @@
 import { Outlet, Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
 
 export default function ProtectedRoute() {
   const { auth, isCharging } = useAuth();
@@ -9,7 +7,6 @@ export default function ProtectedRoute() {
   if (isCharging) return "Cargando...";
   return (
     <>
-      <Header />
       {auth ? (
         <header>
           <Outlet />
@@ -17,7 +14,6 @@ export default function ProtectedRoute() {
       ) : (
         <Navigate to="/" />
       )}
-      <Footer />
     </>
   );
 }

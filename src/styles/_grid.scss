@@ -1,7 +1,0 @@
-@mixin grid($display, $grid-template-rows: auto, $grid-template-columns: auto, $grid-gap: 0) {
-    display: $display;
-    grid-template-rows: $grid-template-rows;
-    grid-template-columns: $grid-template-columns;
-    gap: $grid-gap;
-    place-items: center;
-}
