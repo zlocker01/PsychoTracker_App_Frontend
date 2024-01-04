@@ -1,6 +1,8 @@
+@import '_colors';
+
 .alert, .alert--success {
-    background-color: red;
-    color: aliceblue;
+    background-color: $alert-color;
+    color: $text-secondary-color;
     padding: 5px;
     border-radius: 10px;
     width: 100%;
@@ -8,5 +10,5 @@
 }
 
 .alert--success {
-    background-color: green;
+    background-color: $alert-success-color;
 }

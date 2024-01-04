@@ -1,4 +1,5 @@
 @import '_fonts';
+@import '_colors';
 
 * {
     margin: 0;
@@ -9,7 +10,7 @@
 a, button {
     text-decoration: none;
     cursor: pointer;
-    color: #C2D9FF;
+    color: $text-color;
 }
 
 ul, ol {
@@ -19,7 +20,7 @@ ul, ol {
 h1, h2, h3, h4, h5, h6 {
     font-family: $principal-font;
     text-align: center;
-    color: #C2D9FF;
+    color: $text-color;
 }
 
 h1 {

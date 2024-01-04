@@ -1,7 +1,8 @@
 @import '_flex';
+@import '_colors';
 
 footer {
-    color: aliceblue;
+    color: $text-secondary-color;
     padding: 10px;
     box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
     @include flex(flex, row, nowrap, center, center, 50px);

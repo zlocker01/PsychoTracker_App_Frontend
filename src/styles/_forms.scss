@@ -1,22 +1,23 @@
 @import '_flex';
 @import '_alert';
+@import '_colors';
 
-form {
+.form-access, .form-patiens {
     @include flex(flex, column, nowrap, center, center, 15px);
-    background: #8E8FFA;
+    background: $secondary-color;
     backdrop-filter: blur(20px);
     padding: 20px;
     border-radius: 10px;
-    color: #C2D9FF;
+    color: $text-color;
     margin: 10px;
     box-shadow: 0 0 10px rgba(0, 0,  0, 0.5);
-
+    
     input{
     padding: 5px;
     border: none;
     min-width: 100%;
     border-radius: 10px;
-    }
+}
 
     nav {
         @include flex(flex, row, nowrap, space-between, center);
@@ -26,5 +27,21 @@ form {
             flex-direction: column;
             gap: 10px;
         }
+    }
+}
+
+.form-patiens {
+    color: $text-secondary-color;
+
+    summary {
+        font-weight: bold;
+    }
+
+    summary, label , input, select {
+        margin: 5px 0;
+    }
+
+    textarea {
+        margin: 5px;
     }
 }

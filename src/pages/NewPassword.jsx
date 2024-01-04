@@ -49,14 +49,26 @@ export const NewPassword = () => {
 
     if (password.length < 6) {
       setAlert("La Nueva Contraseña debe incluir al menos 6 cáracteres");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (password === "") {
       setAlert("El campo no puede estar vacio");
     } else if (!specialCharactersRegex.test(password)) {
       setAlert("La Nueva Contraseña debe tener al menos un cáracter especial");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (!upperCaseRegex.test(password)) {
       setAlert("La Nueva Contraseña debe tener al menos una letra mayúscula");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (!numbersRegex.test(password)) {
       setAlert("La Nueva Contraseña debe tener al menos un número");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else {
       try {
         const url = `/psychologist/forgotten-password/${token}`;
@@ -70,9 +82,9 @@ export const NewPassword = () => {
   };
 
   return (
-    <>
+    <div className="form">
       {isValidToken && (
-        <form onSubmit={handleSubmit}>
+        <form className="form-access" onSubmit={handleSubmit}>
           <h2>Cambia tu Contraseña</h2>
           <p>{tokenAlert}</p>
           <FormInput
@@ -89,6 +101,6 @@ export const NewPassword = () => {
         </form>
       )}
       {isPasswordModified && <NavLink url="/" text="Iniciar Sesión" />}
-    </>
+    </div>
   );
 }

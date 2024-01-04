@@ -26,6 +26,9 @@ export const ForgottenPassword = () => {
 
     if (email === "") {
       setAlert("El correo es obligatorio");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
       return;
     } else if (!emailRegex.test(email)) {
       setAlert("Ingresa un Correo válido");
@@ -42,8 +45,8 @@ export const ForgottenPassword = () => {
   };
 
   return (
-    <div className="form__container">
-      <form onSubmit={handleSubmit}>
+    <div className="form">
+      <form className="form-access" onSubmit={handleSubmit}>
         <h2>¿Olvidaste tu Contraseña?</h2>
         <FormInput
           label="Correo"

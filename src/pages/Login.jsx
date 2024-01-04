@@ -34,6 +34,9 @@ export function Login() {
 
     if ([email, password].includes("")) {
       setAlert("Todos los campos son obligatorios");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else {
       try {
         const url = "/psychologist/login";
@@ -49,8 +52,8 @@ export function Login() {
   }
 
   return (
-    <div className="form__container">
-      <form onSubmit={handleSubmit}>
+    <div className="form">
+      <form className="form-access" onSubmit={handleSubmit}>
         <h2>Inicia Sesion y Trackea A Tus Pacientes</h2>
         <FormInput
           label="Correo"

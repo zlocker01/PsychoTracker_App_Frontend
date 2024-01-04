@@ -48,10 +48,19 @@ export const Register = () => {
 
     if ([name, email, password, repeatPassword, phone].includes("")) {
       setAlert("Por favor llenar todos los Campos");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (!emailRegex.test(email)) {
       setAlert("Ingresa un Correo válido");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (phone.length < 10) {
       setAlert("El Telefono debe tener 10 digitos");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (
       name.trim() === "" ||
       email.trim() === "" ||
@@ -60,16 +69,31 @@ export const Register = () => {
       phone.trim() === ""
     ) {
       setAlert("Por favor llene todos los Campos sin espacios vacios");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (!upperCaseRegex.test(password) || !numbersRegex.test(password)) {
       setAlert(
         "La Contraseña debe contener al menos una letra Mayúscula y un Número"
       );
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (password.length < 6) {
       setAlert("La Contraseña debe tener al menos 6 caracteres");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (!specialCharactersRegex.test(password)) {
       setAlert("La Contraseña debe incluir al menos algun carácter especial");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else if (password !== repeatPassword) {
       setAlert("Las Contraseñas deben ser iguales");
+      setTimeout(() => {
+        setAlert("");
+      }, 3000);
     } else {
       // uploading user in DB
       try {
@@ -83,8 +107,8 @@ export const Register = () => {
   };
 
   return (
-    <div className="form__container">
-      <form onSubmit={handleSubmit}>
+    <div className="form">
+      <form className="form-access" onSubmit={handleSubmit}>
         <h2>Regístrate Ahora Y Empieza A Trackear Pacientes</h2>
         <FormInput
           label="Nombre"

@@ -1,5 +1,7 @@
+@import '_colors';
+
 body {
     width: 100%;
-    background: linear-gradient(90deg, #190482, #7752FE);
+    background: linear-gradient(90deg, $principal-color, $secondary-color);
 }
 
