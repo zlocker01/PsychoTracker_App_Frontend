@@ -22,7 +22,7 @@ form {
         @include flex(flex, row, nowrap, space-between, center);
         width: 100%;
 
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 768px) {
             flex-direction: column;
             gap: 10px;
         }

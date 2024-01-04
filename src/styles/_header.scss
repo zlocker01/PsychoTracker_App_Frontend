@@ -6,7 +6,8 @@ header {
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.5);
     @include flex(flex, row, wrap,  space-between, center);
 
-    @media screen and (max-width: 650px) {
+    @media screen and (max-width: 768px) {
         flex-direction: column;
+        padding: 10px;
     }
 }
