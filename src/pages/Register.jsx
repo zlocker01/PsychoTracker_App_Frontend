@@ -83,9 +83,9 @@ export const Register = () => {
   };
 
   return (
-    <>
-      <h2>Regístrate Ahora Y Empieza A Trackear Pacientes</h2>
+    <div className="form__container">
       <form onSubmit={handleSubmit}>
+        <h2>Regístrate Ahora Y Empieza A Trackear Pacientes</h2>
         <FormInput
           label="Nombre"
           value={name}
@@ -123,7 +123,7 @@ export const Register = () => {
           type="password"
         />
         <FormInput
-          label="Repetir Contraseña"
+          label="Contraseña Nuevamente"
           value={repeatPassword}
           onChange={(e) => {
             handleInput(e, "repeatPassword");
@@ -131,14 +131,14 @@ export const Register = () => {
           data="repeatPassword"
           type="password"
         />
-        <p>{alert}</p>
+        {alert !== "" && <p className="alert">{alert}</p>}
         <button>Registrar Cuenta</button>
-      </form>
 
-      <nav>
-        <NavLink url="/" text="Iniciar Sesión" />
-        <NavLink url="/forgotten-password" text="Olvidé Mi Contraseña" />
-      </nav>
-    </>
+        <nav>
+          <NavLink url="/" text="Iniciar Sesión" />
+          <NavLink url="/forgotten-password" text="Olvidé Mi Contraseña" />
+        </nav>
+      </form>
+    </div>
   );
 };

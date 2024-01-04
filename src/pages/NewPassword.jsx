@@ -71,10 +71,10 @@ export const NewPassword = () => {
 
   return (
     <>
-      <h2>Cambia tu Contraseña</h2>
-      <p>{tokenAlert}</p>
       {isValidToken && (
         <form onSubmit={handleSubmit}>
+          <h2>Cambia tu Contraseña</h2>
+          <p>{tokenAlert}</p>
           <FormInput
             label="Nueva Contraseña"
             value={password}
@@ -84,7 +84,7 @@ export const NewPassword = () => {
             data="password"
             type="password"
           />
-          <p>{alert}</p>
+          {alert !== "" && <p className="alert">{alert}</p>}
           <button>Cambiar Contraseña</button>
         </form>
       )}

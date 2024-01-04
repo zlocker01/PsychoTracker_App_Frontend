@@ -4,7 +4,7 @@ import { App } from "./App.jsx";
 import './styles/styles.css'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <>
+  <div className="app">
     <App />
-  </>
+  </div>
 );

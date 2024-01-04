@@ -49,10 +49,10 @@ export function Login() {
   }
 
   return (
-    <>
-      <h2>Inicia Sesion y Trackea A Tus Pacientes</h2>
+    <div className="form__container">
       <form onSubmit={handleSubmit}>
-      <FormInput
+        <h2>Inicia Sesion y Trackea A Tus Pacientes</h2>
+        <FormInput
           label="Correo"
           value={email}
           onChange={(e) => {
@@ -70,15 +70,19 @@ export function Login() {
           data="password"
           type="password"
         />
-        <p>{alert}</p>
+        {alert !== "" && <p className="alert">{alert}</p>}
         <button>Iniciar Sesión</button>
-      </form>
 
-      {/* Adding Link to get better performance */}
-      <nav>
-        <NavLink url="/register" text="Registrate" />
-        <NavLink url="/forgotten-password" text="Olvidé Mi Contraseña" />
-      </nav>
-    </>
+        {/* Adding Link to get better performance */}
+        <nav>
+          <div>
+            <NavLink url="/register" text="Registrate" />
+          </div>
+          <div>
+            <NavLink url="/forgotten-password" text="Olvidé Mi Contraseña" />
+          </div>
+        </nav>
+      </form>
+    </div>
   );
 }

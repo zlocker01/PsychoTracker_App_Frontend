@@ -42,9 +42,9 @@ export const ForgottenPassword = () => {
   };
 
   return (
-    <>
-      <h2>¿Olvidaste tu Contraseña?</h2>
+    <div className="form__container">
       <form onSubmit={handleSubmit}>
+        <h2>¿Olvidaste tu Contraseña?</h2>
         <FormInput
           label="Correo"
           value={email}
@@ -54,14 +54,14 @@ export const ForgottenPassword = () => {
           data="email"
           type="text"
         />
-        <p>{alert}</p>
+        {alert !== "" && <p className="alert">{alert}</p>}
         <button>Recuperar Cuenta</button>
-      </form>
 
-      <nav>
-        <NavLink url="/register" text="Registrate" />
-        <NavLink url="/" text="Iniciar Sesión" />
-      </nav>
-    </>
+        <nav>
+          <NavLink url="/register" text="Registrate" />
+          <NavLink url="/" text="Iniciar Sesión" />
+        </nav>
+      </form>
+    </div>
   );
 };

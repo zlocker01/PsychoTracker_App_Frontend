@@ -9,6 +9,7 @@
 a, button {
     text-decoration: none;
     cursor: pointer;
+    color: #C2D9FF;
 }
 
 ul, ol {
@@ -17,6 +18,12 @@ ul, ol {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $principal-font;
+    text-align: center;
+    color: #C2D9FF;
+}
+
+h1 {
+    font-size: 60px;
 }
 
 p, a, button, option, span, summary {

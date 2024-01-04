@@ -1,0 +1,7 @@
+@import '_grid';
+
+body {
+    @include grid(grid);
+    height: 100vh;
+    background: linear-gradient(90deg, #190482, #7752FE);
+}
