@@ -1,0 +1,17 @@
+@import '_flex';
+
+footer {
+    background-color: #190482;
+    color: aliceblue;
+    width: 100%;
+    padding: 10px;
+    @include flex(flex, row, nowrap, center, center, 50px);
+
+    span {
+        font-weight: bold;
+    }
+    
+    .contact-info {
+        @include flex(flex, column, nowrap, center, center, 10px);
+    }
+}

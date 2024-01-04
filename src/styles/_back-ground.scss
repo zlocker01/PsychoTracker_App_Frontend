@@ -1,0 +1,21 @@
+@import '_grid';
+
+body {
+    @include grid(grid);
+    height: 100vh;
+    background: linear-gradient(90deg, #190482, #7752FE);
+    transition: background-move 15s ease infinite;
+
+    @keyframes background-move {
+        0% {
+            background-position: 0 50%;
+        }
+        50% {
+            background-position: 100% 0%;
+        }
+        100% {
+            background-position: 0 50%;
+        }
+    }
+}
+

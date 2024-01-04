@@ -1,4 +1,3 @@
-import { NavLink } from "./NavLink";
 import { useAuth } from "../hooks/useAuth";
 
 export const Header = () => {
