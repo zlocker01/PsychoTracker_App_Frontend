@@ -1,8 +1,12 @@
-.alert {
+.alert, .alert--success {
     background-color: red;
     color: aliceblue;
     padding: 5px;
     border-radius: 10px;
     width: 100%;
     text-align: center;
+}
+
+.alert--success {
+    background-color: green;
 }

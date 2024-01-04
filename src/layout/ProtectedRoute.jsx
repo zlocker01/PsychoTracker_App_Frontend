@@ -8,9 +8,9 @@ export default function ProtectedRoute() {
   return (
     <>
       {auth ? (
-        <header>
+        // <header>
           <Outlet />
-        </header>
+        // </header>
       ) : (
         <Navigate to="/" />
       )}

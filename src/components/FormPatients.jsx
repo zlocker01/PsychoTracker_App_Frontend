@@ -39,6 +39,7 @@ export const FormPatients = () => {
   const [feedbackPatient, setFeedbackPatient] = useState("");
   const [id, setId] = useState("");
   const [alert, setAlert] = useState("");
+  const [badAlert, setBadAlert] = useState("");
 
   // using patients context
   const { savePatient, patient } = usePatients();
@@ -88,7 +89,11 @@ export const FormPatients = () => {
     e.preventDefault();
     // form patinet validation
     if (name === "") {
-      setAlert("El Nombre es el único campo obligatorio");
+      setBadAlert("El Nombre es el único campo obligatorio");
+
+      setTimeout (() => {
+        setBadAlert("");
+      }, 3000);
       return;
     }
 
@@ -128,7 +133,12 @@ export const FormPatients = () => {
       feedbackPatient,
       id,
     });
+    // showing success alert
     setAlert("Paciente guardado exitosamente");
+    setTimeout(() => {
+      setAlert("");
+    }, 3000);
+
     // cleaning fields
     setId("");
     setName("");
@@ -172,7 +182,8 @@ export const FormPatients = () => {
     <>
       <h2>Añade un Nuevo Paciente</h2>
       <form onSubmit={handleSubmit}>
-        <p>{alert}</p>
+        {(alert !== "" && <p className="alert--success">{alert}</p>) ||
+          (badAlert !== "" && <p className="alert">{badAlert}</p>)}
         <details>
           <summary>Información personal básica:</summary>
           <div>

@@ -1,7 +1,8 @@
-.layOut{
+.layOut {
     width: 100%;
     display: grid;
-    grid-row-gap: 30px; 
+    grid-row-gap: 20px; 
+    height: 100vh;
 
     .form-patiens, .cards-patiens {
         grid-row-start: 2;

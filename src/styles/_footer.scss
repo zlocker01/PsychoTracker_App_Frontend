@@ -3,6 +3,7 @@
 footer {
     color: aliceblue;
     padding: 10px;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
     @include flex(flex, row, nowrap, center, center, 50px);
 
     span {
@@ -11,5 +12,10 @@ footer {
     
     .contact-info {
         @include flex(flex, column, nowrap, center, center, 10px);
+    }
+
+    @media screen and (max-width: 650px) {
+        flex-direction: column;
+        padding-bottom: 20px;
     }
 }
