@@ -1,0 +1,22 @@
+@import '_flex';
+@import '_colors';
+
+// patinet card layOut
+.patient-card {
+    @include flex(flex,column,nowrap,center,center,10px);
+    color: $text-secondary-color;
+    background-color: $secondary-color;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 10px rgba(0, 0 , 0, 0.5);
+
+    p {
+        font-weight: bold;
+    }
+
+    span {
+        font-weight: normal;
+    }
+}
+

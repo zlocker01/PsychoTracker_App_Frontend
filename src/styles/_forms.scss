@@ -2,7 +2,7 @@
 @import '_alert';
 @import '_colors';
 
-.form-access, .form-patiens {
+.form-access {
     @include flex(flex, column, nowrap, center, center, 15px);
     background: $secondary-color;
     backdrop-filter: blur(20px);
@@ -30,21 +30,3 @@
     }
 }
 
-.form-patiens {
-    color: $text-secondary-color;
-
-    summary {
-        font-weight: bold;
-    }
-
-    summary, label , input, select {
-        margin: 5px 0;
-    }
-
-    textarea {
-        margin: 5px;
-        width: 100%;
-        min-height: 100px;
-        resize: none;
-    }
-}

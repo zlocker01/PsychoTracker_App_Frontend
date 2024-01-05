@@ -1,9 +1,13 @@
+@import '_form-patiens';
+
+// form layOut
 .form {
     display: grid;
     place-items: center;
     margin: 10px 0;
 }
 
+// user profile layOut
 .layOut {
     width: 100%;
     display: grid;
@@ -36,4 +40,5 @@
         }
     }
 }
+
 

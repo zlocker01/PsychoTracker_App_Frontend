@@ -1,0 +1,23 @@
+@import '_flex';
+@import '_colors';
+
+.form-patiens {
+    margin: 10px;
+    color: $text-color;
+
+    details {
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    summary, label , input, select {
+        margin: 5px 0;
+    }
+
+    textarea {
+        margin: 5px;
+        width: 100%;
+        min-height: 100px;
+        resize: none;
+    }
+}

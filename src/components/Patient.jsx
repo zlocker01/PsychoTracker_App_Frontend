@@ -50,7 +50,7 @@ export const Patient = ({ patient }) => {
   };
 
   return (
-    <>
+    <div className="patient-card">
       <PatientInfo field="Nombre" data={name} />
       {age && <PatientInfo field="Edad" data={age} />}
       {gender && <PatientInfo field="Género" data={gender} />}
@@ -172,12 +172,22 @@ export const Patient = ({ patient }) => {
           data={feedbackPatient}
         />
       )}
-      <button type="button" onClick={() => editPatient(patient)}>
-        Editar
-      </button>
-      <button type="button" onClick={() => deletePatient(patient)}>
-        Eliminar
-      </button>
-    </>
+      <div className="buttons-patiens">
+        <button
+          className="button--edit"
+          type="button"
+          onClick={() => editPatient(patient)}
+        >
+          Editar
+        </button>
+        <button
+          className="button--delete"
+          type="button"
+          onClick={() => deletePatient(patient)}
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
   );
 };

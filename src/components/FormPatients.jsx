@@ -184,7 +184,7 @@ export const FormPatients = () => {
       <form onSubmit={handleSubmit}>
         {(alert !== "" && <p className="alert--success">{alert}</p>) ||
           (badAlert !== "" && <p className="alert">{badAlert}</p>)}
-        <details>
+        <details name="fields">
           <summary>Información personal básica:</summary>
           <div>
             <InputWithLabel
@@ -256,7 +256,7 @@ export const FormPatients = () => {
             </label>
           </div>
         </details>
-        <details>
+        <details name="fields">
           <summary>Historial clinico:</summary>
           <div>
             <TextareaWithLabel
@@ -291,7 +291,7 @@ export const FormPatients = () => {
             />
           </div>
         </details>
-        <details>
+        <details name="fields">
           <summary>Evaluación inicial:</summary>
           <div>
             <TextareaWithLabel
@@ -320,7 +320,7 @@ export const FormPatients = () => {
             />
           </div>
         </details>
-        <details>
+        <details name="fields">
           <summary>Diagnostico:</summary>
           <div>
             <TextareaWithLabel
@@ -339,7 +339,7 @@ export const FormPatients = () => {
             />
           </div>
         </details>
-        <details>
+        <details name="fields">
           <summary>Tratamiento y planificación:</summary>
           <div>
             <TextareaWithLabel
@@ -368,7 +368,7 @@ export const FormPatients = () => {
             />
           </div>
         </details>
-        <details>
+        <details name="fields">
           <summary>Medicación:</summary>
           <div>
             <TextareaWithLabel
@@ -395,7 +395,7 @@ export const FormPatients = () => {
             />
           </div>
         </details>
-        <details>
+        <details name="fields">
           <summary>Sesiones y notas de progreso:</summary>
           <div>
             <TextareaWithLabel
@@ -430,7 +430,7 @@ export const FormPatients = () => {
             />
           </div>
         </details>
-        <details>
+        <details name="fields">
           <summary>Evaluación continua:</summary>
           <div>
             <TextareaWithLabel
@@ -459,7 +459,7 @@ export const FormPatients = () => {
             />
           </div>
         </details>
-        <details>
+        <details name="fields">
           <summary>Notas adicionales:</summary>
           <div>
             <TextareaWithLabel

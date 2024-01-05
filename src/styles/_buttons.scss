@@ -1,18 +1,42 @@
+@import '_colors';
+
 button {
+    background-color: $principal-color;
     padding: 10px;
-    background-color: #190482;
+    border: 1px solid $principal-color;
     border-radius: 10px;
-    border: 1px solid #7752FE;
     width: 100%;
     box-shadow: 0 0 5px rgba(0 , 0, 0, 0.5);
     transition: transform 0.2s;
 
     &:hover {
-        background-color: #7752FE;
+        background-color: $secondary-color;
     }
     
     &:active {
         transform: scale(0.95);
-        color: #190482;
+        color: $principal-color;
+    }
 }
+
+.button--delete {
+    background-color: $alert-color;
+    border-color: $alert-color;
+
+    &:hover {
+        background-color: rgb(171, 4, 4);
+    }
+}
+
+// buttons patient card desing
+.buttons-patiens {
+    display:  flex;
+    flex-direction: row;
+    margin: 5px;
+    gap: 5px;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        width: 100%;
+    }
 }
