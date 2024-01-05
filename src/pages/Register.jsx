@@ -11,6 +11,8 @@ export const Register = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [alert, setAlert] = useState("");
+  const [goodAlert, setGoodAlert] = useState("");
+
 
   // handle for inputs when typing
   const handleInput = (e, data) => {
@@ -99,7 +101,7 @@ export const Register = () => {
       try {
         const url = "/psychologist";
         await clientAxios.post(url, { name, email, password, repeatPassword, phone });
-        setAlert("¡Ya está! Revisa tu Correo");
+        setGoodAlert("¡Ya está! Revisa tu Correo");
       } catch (error) {
         setAlert(error.response.data.msg  || "Hubo un error en la solicitud");
       }
@@ -155,7 +157,8 @@ export const Register = () => {
           data="repeatPassword"
           type="password"
         />
-        {alert !== "" && <p className="alert">{alert}</p>}
+        {(alert !== "" && <p className="alert">{alert}</p>) ||
+          (goodAlert !== "" && <p className="alert--success">{goodAlert}</p>)}
         <button>Registrar Cuenta</button>
 
         <nav>
