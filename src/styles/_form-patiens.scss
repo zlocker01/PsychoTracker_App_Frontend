@@ -2,7 +2,7 @@
 @import '_colors';
 
 .form-patiens {
-    margin: 10px;
+    margin: .625rem;
     color: $text-color;
 
     details {
@@ -15,9 +15,9 @@
     }
 
     textarea {
-        margin: 5px;
+        margin: .3125rem;
         width: 100%;
-        min-height: 100px;
+        min-height: 6.25rem;
         resize: none;
     }
 }

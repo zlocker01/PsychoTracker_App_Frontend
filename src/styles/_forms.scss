@@ -3,20 +3,19 @@
 @import '_colors';
 
 .form-access {
-    @include flex(flex, column, nowrap, center, center, 15px);
+    @include flex(flex,column,nowrap,center,center,.9375rem);
     background: $secondary-color;
-    backdrop-filter: blur(20px);
-    padding: 20px;
-    border-radius: 10px;
+    backdrop-filter: blur(1.25rem);
+    padding: 1.25rem;
+    border-radius: .625rem;
     color: $text-color;
-    margin: 10px;
-    box-shadow: 0 0 10px rgba(0, 0,  0, 0.5);
-    
-    input{
-    padding: 5px;
+    margin: .625rem;
+    box-shadow: 0 0 .625rem rgba(0, 0,  0, 0.5);
+    input {
+    padding: .3125rem;
     border: none;
     min-width: 100%;
-    border-radius: 10px;
+    border-radius: .625rem;
 }
 
     nav {
@@ -25,7 +24,7 @@
 
         @media screen and (max-width: 768px) {
             flex-direction: column;
-            gap: 10px;
+            gap: .625rem;
         }
     }
 }

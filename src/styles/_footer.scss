@@ -3,9 +3,9 @@
 
 footer {
     color: $text-secondary-color;
-    padding: 10px;
-    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
-    @include flex(flex, row, nowrap, center, center, 50px);
+    padding: .625rem;
+    box-shadow: -0.625rem 0 .625rem rgba(0, 0, 0, 0.5);
+    @include flex(flex, row, nowrap, center, center, 3.125rem);
 
     span {
         font-weight: bold;
@@ -17,6 +17,6 @@ footer {
 
     @media screen and (max-width: 768px) {
         flex-direction: column;
-        padding-bottom: 20px;
+        padding-bottom: 1.25rem;
     }
 }
