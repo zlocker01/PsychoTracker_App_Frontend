@@ -7,8 +7,8 @@
     "display_override": ["standalone", "fullscreen"],
     "display": "standalone",
     "start_url": "/index.html",
-    "background_color": "#B4D4FF)",
-    "theme_color": "#B4D4FF)",
+    "background_color": "#B4D4FF",
+    "theme_color": "#B4D4FF",
     "orientation": "portrait",
     "icons": [
         {
