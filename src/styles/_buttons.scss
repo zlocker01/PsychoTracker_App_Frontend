@@ -42,3 +42,14 @@ button {
         width: 100%;
     }
 }
+
+.btn-PWA {
+    display: block;
+    margin-left: .625rem;
+    width: 30%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 480px) {
+        width: 50%;
+    }
+}
