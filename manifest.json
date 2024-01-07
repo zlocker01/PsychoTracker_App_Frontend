@@ -4,7 +4,6 @@
     "categories": ["medical", "productivity"],
     "description": "App to track patients for psychologist",
     "dir": "ltr",
-    "display_override": ["standalone", "fullscreen"],
     "display": "standalone",
     "start_url": "/",
     "background_color": "#B4D4FF",
@@ -210,7 +209,7 @@
             "purpose": "any"
         }
     ],
-    "splash_screen": {
+    "splash_pages": {
         "full": "./src/assets/img/icons/iTunesArtwork@2x.png"
     },
     "id": "/v2",
