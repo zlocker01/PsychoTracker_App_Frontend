@@ -14,97 +14,116 @@
         {
             "src": "./src/assets/img/icons/iTunesArtwork.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/iTunesArtwork@2x.png",
             "sizes": "1024x1024",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-120.png",
             "sizes": "120x120",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-20.png",
             "sizes": "20x20",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-20@2x.png",
             "sizes": "40x40",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-20@3x.png",
             "sizes": "60x60",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-29.png",
             "sizes": "29x29",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-29@2x.png",
             "sizes": "58x58",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-29@3x.png",
             "sizes": "87x87",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-40.png",
             "sizes": "40x40",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-40@2x.png",
             "sizes": "80x80",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-40@3x.png",
             "sizes": "120x120",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-50.png",
             "sizes": "50x50",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-50@2x.png",
             "sizes": "100x100",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-50@3x.png",
             "sizes": "150x150",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-57.png",
             "sizes": "57x57",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-57@2x.png",
             "sizes": "114x114",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-57@3x.png",
             "sizes": "171x171",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-60.png",
             "sizes": "60x60",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-60@2x.png",
@@ -119,12 +138,16 @@
         {
             "src": "./src/assets/img/icons/icon-72.png",
             "sizes": "72x72",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
+
         },
         {
             "src": "./src/assets/img/icons/icon-72@2x.png",
             "sizes": "114x114",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
+
         },
         {
             "src": "./src/assets/img/icons/icon-144.png",
@@ -135,47 +158,56 @@
         {
             "src": "./src/assets/img/icons/icon-72@3x.png",
             "sizes": "216x216",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-76.png",
             "sizes": "76x76",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-76@2x.png",
             "sizes": "152x152",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-76@3x.png",
             "sizes": "228x228",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-83.5@2x.png",
             "sizes": "83x83",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-Small.png",
             "sizes": "29x29",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-Small@2x.png",
             "sizes": "58x58",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon-Small@3x.png",
             "sizes": "87x87",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "./src/assets/img/icons/icon.png",
             "sizes": "57x57",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         }
     ],
     "splash_screen": {
