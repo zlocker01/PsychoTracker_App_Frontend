@@ -127,6 +127,11 @@
             "type": "image/png"
         },
         {
+            "src": "./src/assets/img/icons/icon-144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
             "src": "./src/assets/img/icons/icon-72@3x.png",
             "sizes": "216x216",
             "type": "image/png"
