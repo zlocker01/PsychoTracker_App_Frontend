@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FormInput } from "../components/FormInput";
 import { NavLink } from "../components/NavLink";
 import { clientAxios } from "../config/axios";
+import { ModelViewer } from "../components/ModelViewer";
 
 export const ForgottenPassword = () => {
   const [email, setEmail] = useState("");
@@ -65,6 +66,7 @@ export const ForgottenPassword = () => {
           <NavLink url="/" text="Iniciar Sesión" />
         </nav>
       </form>
+      <ModelViewer />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { NavLink } from "../components/NavLink";
 import { useNavigate } from "react-router-dom";
 import { clientAxios } from "../config/axios";
 import { useAuth } from "../hooks/useAuth";
+import { ModelViewer } from "../components/ModelViewer";
 
 export function Login() {
   // route to re-direct the user
@@ -86,6 +87,7 @@ export function Login() {
           </div>
         </nav>
       </form>
+      <ModelViewer />
     </div>
   );
 }

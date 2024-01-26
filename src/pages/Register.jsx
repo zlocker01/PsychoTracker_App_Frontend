@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FormInput } from "../components/FormInput";
 import { NavLink } from "../components/NavLink";
 import { clientAxios } from "../config/axios";
+import { ModelViewer } from "../components/ModelViewer";
 
 export const Register = () => {
   // states for inputs
@@ -166,6 +167,7 @@ export const Register = () => {
           <NavLink url="/forgotten-password" text="Olvidé Mi Contraseña" />
         </nav>
       </form>
+      <ModelViewer />
     </div>
   );
 };
