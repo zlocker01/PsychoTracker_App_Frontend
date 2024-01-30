@@ -17,27 +17,35 @@ export const ModelViewer = () => {
       0.1,
       1000
     );
-    camera.position.z = 90;
+    camera.position.z = 100;
     
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth * 0.5, window.innerHeight);
-    
-    const ambientLight = new THREE.AmbientLight(0xfefefe, 1);
-    ambientLight.position.set(1, 1, 2);
-    ambientLight.intensity = 1;
-    scene.add(ambientLight);
 
     const directionLigth = new THREE.DirectionalLight(0xfefefe);
-    directionLigth.position.set(1, 2, 2);
+    directionLigth.position.set(0, 2, 0);
     directionLigth.intensity = 3;
     scene.add(directionLigth);
+
+    const directionLigthColor = new THREE.AmbientLight(0x86B6F6, 0.5);
+    directionLigth.position.set(0, 1, 0);
+    scene.add(directionLigthColor);
 
     // model
     const loader = new GLTFLoader();
     loader.load("/brain/scene.gltf", (gltf) => {
       const model = gltf.scene;
-      model.position.y = -15;
-      model.scale.set(0.3, 0.3, 0.3);
+      model.position.y = -18;
+      model.scale.set(0.5, 0.3, 0.4);
+      model.name = 'model'
+
+      // shadows
+      model.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+        }
+      });
       scene.add(model);
     });
 
@@ -52,7 +60,11 @@ export const ModelViewer = () => {
 
     const animate = () => {
       requestAnimationFrame(animate);
-      controls.update(); // Actualizar controles en cada cuadro
+      controls.update(); // updating controls in motion
+      const model = scene.getObjectByName('model');
+      if (model) {
+      model.rotation.y -= 0.005;
+}
       renderer.render(scene, camera);
     };
 
