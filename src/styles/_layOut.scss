@@ -2,10 +2,13 @@
 
 // form layOut
 .form {
-    display: grid;
-    place-items: center;
-    margin: .625rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 2.5rem;
 }
+
 
 // user profile layOut
 .layOut {
@@ -22,8 +25,10 @@
         grid-column: 1 / 3; 
     }
 
-    @media screen and (max-width: 768px) {
-        grid-row-gap: .625rem; 
+    @media screen and (max-width: 768px) { 
+        .form {
+            flex-direction: column;
+        }
 
         .form-patiens {
             grid-row-start: 2;
