@@ -17,6 +17,7 @@ export const ModelViewer = () => {
       0.1,
       1000
     );
+
     camera.position.z = 100;
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
@@ -87,5 +88,5 @@ export const ModelViewer = () => {
     };
   }, []);
 
-  return <div className="model" ref={mountRef} />;
+  return <div className="form-canvas" ref={mountRef} />;
 };

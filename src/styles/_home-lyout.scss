@@ -1,0 +1,17 @@
+// form layOut
+.form  {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 2.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+}
