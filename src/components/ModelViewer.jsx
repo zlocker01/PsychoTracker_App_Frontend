@@ -83,8 +83,15 @@ export const ModelViewer = () => {
 
     return () => {
       CurrentMount.removeChild(renderer.domElement);
+      // deleting resize
+      window.removeEventListener('resize', resize);
       // cleaning resources
-      scene.dispose();
+      scene.traverse((obj) => {
+        if(obj.isMesh){
+          obj.geometry.dispose();
+          obj.material.dispose();
+        }
+      });
     };
   }, []);
 
