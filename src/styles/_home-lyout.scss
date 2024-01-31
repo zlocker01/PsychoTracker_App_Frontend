@@ -7,6 +7,10 @@
     margin: 0 2.5rem;
 }
 
+.form-canvas {
+    cursor: grab;
+}
+
 @media screen and (max-width: 768px) {
     .form {
         display: flex;
