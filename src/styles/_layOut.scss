@@ -9,7 +9,6 @@
     margin: 0 2.5rem;
 }
 
-
 // user profile layOut
 .layOut {
     width: 100%;
@@ -31,6 +30,11 @@
             align-items: center;
             margin: 0;
         }
+
+        .model {
+            width: 100%; // Asegura que el modelo ocupe todo el ancho disponible
+            height: 100%; // Asegura que el modelo ocupe toda la altura disponible
+          }
 
         .form-patiens {
             grid-row-start: 2;

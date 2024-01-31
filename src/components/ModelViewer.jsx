@@ -18,9 +18,19 @@ export const ModelViewer = () => {
       1000
     );
     camera.position.z = 100;
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
     
     const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(window.innerWidth * 0.5, window.innerHeight);
+
+    // responsive
+    const resize =  () => {
+      renderer.setSize(window.innerWidth * 0.5 , window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    }
+    window.addEventListener('resize', resize);
 
     const directionLigth = new THREE.DirectionalLight(0xfefefe);
     directionLigth.position.set(0, 2, 0);
@@ -72,7 +82,7 @@ export const ModelViewer = () => {
 
     return () => {
       CurrentMount.removeChild(renderer.domElement);
-      // Limpieza de recursos cuando el componente se desmonta
+      // cleaning resources
       scene.dispose();
     };
   }, []);
