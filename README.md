@@ -1,7 +1,7 @@
 ## Descricpion 🖥️
 
-proyect to psychologist patients adminstration
-With: MERN stack and SASS + Axios + Prepros
+proyect to psychologist patients adminstration with 3D improted Model interactvie with Orbit Controls
+With: MERN Stack + Three.JS and SASS + Axios + Prepros
 ## Autor ✒️
 
 Diego Beristain de la Mora
